@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermanagement-system-k8s
+spec:
+  selector:
+    matchLabels:
+      app: usermanagement-system-k8s
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: usermanagement-system-k8s
+    spec:
+      containers:
+        - name: usermanagement-system-k8s
+          image: ashishhkr14791/springbootwithdocker:v3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
